@@ -54,7 +54,7 @@
         setValue(arg) {
             if (this.editor) {
                 this.editor.setContent(arg);
-            }
+            } 
             //   tinymce.get('mceeditor').setContent(arg);
         }
         getValue() {
