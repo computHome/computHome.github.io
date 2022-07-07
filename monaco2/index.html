@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<base target="_top">
+
+
+ 
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
+
+
+
+</script>
+ 
+<link type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css" rel="Stylesheet">
+ 
+<link type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="Stylesheet">
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script> 
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script> 
+
+
+ 
+
+<!--
+<?!= include('toastr.css'); ?>
+-->
+
+<link rel="stylesheet" href="stylesheet.css">
+
+  
+</head>
+
+<body>
+  <div  style="display:none;border: 1px solid red;width: 20px; height: 20px;" >Monaco 20220623 0408 </div>
+
+  <div id="dialog-waiting" style="display:block; width: auto; min-height: 57px; max-height: none; height: auto;" class="ui-dialog-content ui-widget-content">
+    <p>Please wait and don't refresh the page ...... </p>
+  </div>
+        
+  <div class='tt1' id='divParent' tabIndex="-1">
+        <input type="text" id="hilite2" value="">
+        <div id='divbut' style="display:inline;border: 1px solid red;width: 20px; height: 20px;"> </div>
+
+ 
+
+        <div style="height:200px;overflow:auto;padding:5px;" data-role="content" id="ListDiv" tabIndex="-1">
+            <ul class="listview" data-inset="true" data-filter="true" data-filter-placeholder="Search" tabIndex="-1">
+            </ul>
+        </div>
+        <div class="tAreaDiv">
+		 <pre  id="tArea" style="  height:220px;"> </pre> 
+		</div>
+		
+    </div>
+    <input type="button" value="test" id="btest">
+    <div id="container" ></div>
+
+    <div id="container2" >
+      <div id="editor2">
+      </div>
+
+
+    </div>
+
+
+
+<div  style="right:20px;bottom:0px;position:absolute;" >
+  <input style="display:none" type="text" name="" value="https://script.google.com/home/projects/1a7qf0nwdGX_2TYGjyc-A8jifX4BMTm19WaInr5iflRRFjuK0NtEzarBF/edit" id="srcHref"  />   
+
+<button id="saveId" >Save</button>
+<button id="gotoBookId" >Go to BM</button>
+
+<button id="prev" >prev</button>
+<button id="next" >next</button>
+<input type="text" name="" id="searchId"  />   
+<input type="text" name="" id="posId"  />   
+<input type="text" name="" id="caretId"  />   
+<select  style="width:200px" id="selectId" > </select>
+ 
+       
+</div>
+
+</div>
+   
+
+ 
+ 
+      <script >
+ window.onbeforeunload = function (e) {
+        e = e || window.event;
+    
+        // For IE and Firefox prior to version 4
+        if (e) {
+            e.returnValue = 'Sure?';
+        }
+    
+        // For Safari
+        return 'Sure?';
+    };
+ 	  
+	  </script>
+ 
+ <script src="./build/ckeditor.js"></script>
+
+
+    
+ <script src="ckload.js"></script>
+ 
+<script src="javascript.js"></script>
+
+ 
+<script src="run.js"></script>
+
+  
+  
+</body>
+
+</html>
+
+

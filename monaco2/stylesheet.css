@@ -1,0 +1,177 @@
+#divParent {
+  display: none;
+  background: white;
+  position: absolute;
+  border: 1px solid red;
+  left: 100px;
+  top: 100px;
+  height: 500px;
+  width: 900px;
+  z-index: 999999;
+}
+pre {
+  white-space: pre-wrap;
+}
+.tAreaDiv {
+  overflow: auto;
+  border: 2px solid red;
+  padding: 5px;
+}
+#tArea {
+  font-family: Courier New;
+
+  font-weight: bold;
+}
+ul {
+  padding: 0px;
+  margin: 0px;
+}
+.listview {
+  cursor: pointer;
+}
+#ListDiv {
+  border: 1px solid lightgray;
+}
+.listview li {
+  font-family: Courier New;
+  word-wrap: break-word;
+  display: block;
+  position: relative;
+  overflow: visible;
+  margin: 0px;
+  padding: 0px;
+  list-style: outside none none;
+  border-bottom-width: 1px;
+  border-bottom-color: #5d990f;
+  border-bottom-style: solid;
+}
+.descClass {
+  font-family: Courier New;
+  background-color: white;
+  border: 1px solid #edb0b0;
+  font-weight: bold;
+}
+.nbspClass {
+  background-color: yellow;
+  border: 1px solid #edb0b0;
+}
+html,
+body {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+#container {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+.divMenu {
+  border: 1px solid #fdb1b1;
+  cursor: pointer;
+  background: #e5dada;
+  font-size: 12px;
+  padding: 5px;
+}
+.divMenu:hover {
+  background: white;
+}
+/*
+  .monaco-editor .selectionHighlight {
+  border : 1px solid red;
+  
+ 
+}
+*/
+#pButton3 {
+  position: absolute;
+  bottom: 1px;
+  right: 1px;
+}
+.ssss {
+  background: #ffff0077;
+}
+.ssss3 {
+  background: #ff00ff77;
+}
+
+#debuglog {
+  z-index: 999999;
+  background-color: white;
+  border-width: 1px;
+  border-color: red;
+  border-style: solid;
+  position: fixed;
+  top: 9px;
+  left: 239px;
+  width: auto;
+  height: auto;
+  overflow: auto;
+  display: none;
+}
+#msgSelectDiv {
+  z-index: 999999;
+  background-color: white;
+  border-width: 1px;
+  border-color: red;
+  border-style: solid;
+  position: fixed;
+  bottom: 23px;
+  right: 19px;
+  width: auto;
+  height: 49px;
+  overflow: auto;
+  display: block;
+}
+.searchBoxId {
+  right: 30px;
+  top: 10px;
+  position: absolute;
+}
+
+
+
+
+
+
+#container2 {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+  border: 1px solid black;
+}
+.ck-editor__editable[role="textbox"] {
+  /* editing area */
+  min-height: 200px;
+}
+
+.ck-content .image {
+  /* block images */
+  max-width: 80%;
+  margin: 20px auto;
+}
+
+
+#btest {
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 99999999999999999;
+}
+
+
