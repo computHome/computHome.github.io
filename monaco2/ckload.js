@@ -178,21 +178,13 @@
         ]
     });
     window._editor2.setData('fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasrecords  df fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfs  records ffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>')
-
     // alert('test');
     document.querySelector('#btest').onclick = () => {
         window._editor2.execute('find', 'a');
-
-
     }
-
-
     window._editor2.on("mouseup", function () {
         alert('test');
-
     });
-
-
     var getSelectedText = function (editor) {
         var selectedText = '';
         var selection = editor.getSelection();
@@ -206,72 +198,74 @@
         }
         return (selectedText);
     }
-
     window._editor2.editing.view.document.on('mouseup', evt => {
-        console.log('mouseup!', evt)
 
-        //   let txt = window._editor2.getSelection().getSelectedText();
-        //   var txt = getSelectedText(window._editor2);
+        (async () => {
+            console.log('mouseup!', evt)
+            //   let txt = window._editor2.getSelection().getSelectedText();
+            //   var txt = getSelectedText(window._editor2);
+            /*
+              var txt = window._editor2
+                        .getSelectedHtml()
+                        .getHtml(); //result: <p>test</p>
+            */
+            /*
+                    var editor = window._editor2,
+                        range = editor.getSelection().getRanges()[0],
+                        el = editor.document.createElement('div');
+                    el.append(range.cloneContents());
+                    console.log(el.getHtml());
+            */
+            const editor = window._editor2;
+            const selection = window._editor2.model.document.selection;
+            const range = selection.getFirstRange();
 
-        /*
-          var txt = window._editor2
-                    .getSelectedHtml()
-                    .getHtml(); //result: <p>test</p>
-        
-        */
+            window._t2 = range;
+            // copy the range into a new var
 
 
-        /*
-        
-                var editor = window._editor2,
-                    range = editor.getSelection().getRanges()[0],
-                    el = editor.document.createElement('div');
-        
-                el.append(range.cloneContents());
-                console.log(el.getHtml());
-        
-        */
+            // get the child elements of the selected text:
 
 
-        const editor = window._editor2;
-        const selection = editor.model.document.selection;
-        const range = selection.getFirstRange();
-        let out = "";
-        for (const item of range.getItems()) {
-            //  console.log(item.data) //return the selected text
+            window._t5 = range.getItems();
 
-            if (item.data) {
-                out += item.data + "\n";
+/*
+            var out = "";
+            for (var item of range.getContainedElement()) {
+                //  console.log(item.data) //return the selected text
+                window._t3 = item;
+                
+            }
+            out = out.trim();
+            console.log("out:   [", out, "]");   
+*/
+
+            
+            var out = "";
+            for (var item of range.getItems()) {
+                //  console.log(item.data) //return the selected text
+              //  window._t3 = item;
+                if (item.data) {
+                    console.log("item.data:   [", item.data, "]");
+                    out += item.data + "";
+                }
+            }
+            out = out.trim();
+            console.log("out:   [", out, "]");
+            if (out.indexOf("\n") < 0) {
+                window._editor2.execute('find', out);
+                window.hilite(out)
             }
 
-        }
-        out = out.trim();
-
-        console.log("out:   [", out, "]");
-
-
-        if (out.indexOf("\n") < 0) {
-            window._editor2.execute('find', out);
-            window.hilite(out)
-        }
-
-
+        })();
 
 
         //  console.log("txt:   [", txt, "]");
-
-
-
     });
-
-
     /*
-    
-    
         this.listenTo(editor.plugins.get('Clipboard'), 'inputTransformation', (evt, data) => {
             if (data.content.childCount == 1 && isUrlText(data.content.getChild(0))) {
                 const linkUrl = data.content.getChild(0).data;
-    
                 data.content = new ViewDocumentFragment([
                     ViewElement(
                         'a',
@@ -282,22 +276,4 @@
             }
         });
     */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 })();
-
-
