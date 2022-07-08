@@ -258,7 +258,7 @@
 
             console.log("out:   [", out, "]");
             if (out.indexOf("\n") < 0  && out.length > 0) {
-                window._editor2.execute('find', out);
+       //         window._editor2.execute('find', out);
                 window.hilite(out)
             }
 
