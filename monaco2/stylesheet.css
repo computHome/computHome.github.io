@@ -66,16 +66,7 @@ body {
   padding: 0;
   overflow: hidden;
 }
-#container {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 50%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-}
+
 .divMenu {
   border: 1px solid #fdb1b1;
   cursor: pointer;
@@ -139,17 +130,25 @@ body {
   position: absolute;
 }
 
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+.flex-container>div {
+  width: 50%;
+}
 
-
-
+#container {
+   
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
 
 
 #container2 {
-  position: absolute;
-  left: 50%;
-  top: 0;
-  width: 50%;
-  height: 100%;
+ 
   margin: 0;
   padding: 0;
   overflow: auto;

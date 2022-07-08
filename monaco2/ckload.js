@@ -177,7 +177,7 @@
             'MathType'
         ]
     });
-    window._editor2.setData('fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasrecords  df fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfs  records ffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>')
+    window._editor2.setData('fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasrecords  df fsfsffsfa <br>fasdf fsfsffsfa  gggggggg <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br><br><br><br><br>fasdf fsfs  records ffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br> <br><br><br><br><br>fasdf fsfs  records ffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br> <br><br><br><br><br>fasdf fsfs  records ffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br> <br><br><br><br><br>fasdf fsfs  records ffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsf  gggggggg  sffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>fasdf fsfsffsfa <br>')
     // alert('test');
     document.querySelector('#btest').onclick = () => {
         window._editor2.execute('find', 'a');
@@ -240,6 +240,8 @@
             console.log("out:   [", out, "]");   
 */
 
+
+ 
             
             var out = "";
             for (var item of range.getItems()) {
@@ -251,8 +253,11 @@
                 }
             }
             out = out.trim();
+
+ 
+
             console.log("out:   [", out, "]");
-            if (out.indexOf("\n") < 0) {
+            if (out.indexOf("\n") < 0  && out.length > 0) {
                 window._editor2.execute('find', out);
                 window.hilite(out)
             }
