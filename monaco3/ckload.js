@@ -13,7 +13,8 @@
                 'outdent', 'indent', '|',
                 'undo', 'redo',
                 '-',
-                'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor', 'highlight', '|',
+                'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor', 'highlight:yellowMarker', 'highlight:greenMarker', 'highlight:pinkMarker', 'highlight:blueMarker',
+                'highlight:greenPen', 'highlight:redPen', 'removeHighlight','|',
                 'alignment', '|',
                 'link', 'insertImage', 'blockQuote', 'insertTable', 'mediaEmbed', 'codeBlock',
                 'htmlEmbed',
@@ -260,6 +261,8 @@
             if (out.indexOf("\n") < 0  && out.length > 0) {
               window._editor2.execute('find', out);
                 window.hilite(out)
+            } else {
+                window._editor2.execute('find', '');
             }
 
         })();
