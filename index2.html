@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,74 +10,193 @@
         .backRed {
             background-color: rgb(218, 155, 155);
         }
+
+        #drag-1,
+        #drag-2 {
+            width: 10px;
+            height: 10px;
+            top: 0px;
+            right: 0px;
+            margin: 1rem 0 0 1rem;
+            background-color: #29e;
+            color: white;
+            border-radius: 0.75em;
+            padding: 4%;
+            touch-action: none;
+            user-select: none;
+            transform: translate(0px, 0px);
+            position: absolute;
+        }
     </style>
+
+    <!--
+  <script src="plain-overlay.min.js"></script>
+-->
+    <script src="https://unpkg.com/interactjs/dist/interact.min.js"></script>
+    <script type="module">
+
+        // target elements with the "draggable" class
+interact('.draggable')
+  .draggable({
+    // enable inertial throwing
+    inertia: true,
+    // keep the element within the area of it's parent
+    modifiers: [
+      interact.modifiers.restrictRect({
+        restriction: 'parent',
+        endOnly: true
+      })
+    ],
+    // enable autoScroll
+    autoScroll: true,
+
+    listeners: {
+      // call this function on every dragmove event
+      move: dragMoveListener,
+
+      // call this function on every dragend event
+      end (event) {
+        var textEl = event.target.querySelector('p')
+
+        textEl && (textEl.textContent =
+          ' ' +
+          (Math.sqrt(Math.pow(event.pageX - event.x0, 2) +
+                     Math.pow(event.pageY - event.y0, 2) | 0))
+            .toFixed(2) + 'px')
+      }
+    }
+  })
+
+function dragMoveListener (event) {
+  var target = event.target
+  // keep the dragged position in the data-x/data-y attributes
+  var x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx
+  var y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy
+
+  // translate the element
+  target.style.transform = 'translate(' + x + 'px, ' + y + 'px)'
+
+  // update the posiion attributes
+  target.setAttribute('data-x', x)
+  target.setAttribute('data-y', y)
+}
+
+// this function is used later in the resizing and gesture demos
+window.dragMoveListener = dragMoveListener
+    </script>
 </head>
+
 <body>
+
+
     <span></span><br>road 1:</span><br>
     _____<br>
     <span>lane merge, signal right:</span><br>
     <a href="https://www.google.com/maps/@22.3389599,114.1662757,3a,75y,104.76h,101.42t/data=!3m9!1e1!3m7!1smY7HAMCmzqp0RMFNs63icg!2e0!7i16384!8i8192!9m2!1b1!2i51"
-        class="">map</a><br><br>
+        class="">map</a>
+
+    <br><iframe
+        src="https://www.google.com/maps/embed?pb=!4v1659690605610!6m8!1m7!1smY7HAMCmzqp0RMFNs63icg!2m2!1d22.33895985340971!2d114.1662756897221!3f104.76!4f11.420000000000002!5f0.7820865974627469"
+        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <br>
     _____<br>
     <span>divide to 2 lanes, signal right:</span><br>
     <a href="https://www.google.com/maps/@22.3375909,114.1693948,3a,75y,174.86h,87.53t/data=!3m9!1e1!3m7!1savLMMAKPlU5gmCrWffsYJA!2e0!7i16384!8i8192!9m2!1b1!2i51"
-        class="">map</a><br><br>
+        class="">map</a>
+    <br><iframe src="https://www.google.com/maps/embed?pb=!4v1659690718141!6m8!1m7!1savLMMAKPlU5gmCrWffsYJA!2m2!1d22.33759088007404!2d114.1693947674811!3f174.86!4f-2.469999999999999!5f0.7820865974627469" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <br>
     _____<br>
     <span>turn right:</span><br>
     <a href="https://www.google.com/maps/@22.3367104,114.1692491,3a,75y,188.09h,91.09t/data=!3m9!1e1!3m7!1sonR1gSW6Dkc8RrTfPSoADg!2e0!7i16384!8i8192!9m2!1b1!2i51"
-        class="">map</a><br><br>
+        class="">map</a>
+
+    <br>
     _____<br>
     <span>go straight:</span><br>
     <a href="https://www.google.com/maps/@22.3357431,114.1662485,3a,75y,113.26h,93.77t/data=!3m6!1e1!3m4!1s17lHu4NdD-xl2p9epxyLVQ!2e0!7i16384!8i8192"
-        class="">map</a><br><br>
+        class="">map</a>
+
+    <br>
     _____<br>
     <span>parked car, signal right:</span><br>
     <a href="https://www.google.com/maps/@22.3353984,114.1667998,3a,75y,110.21h,94.93t/data=!3m9!1e1!3m7!1sWS5SzQjBcrDrMXiFDoGOOA!2e0!7i16384!8i8192!9m2!1b1!2i40"
-        class="">map</a><br><br>
+        class="">map</a>
+
+    <br>
     _____<br>
     <span>turn left:</span><br>
     <a href="https://www.google.com/maps/@22.3346923,114.1676862,3a,75y,122.9h,93.72t/data=!3m10!1e1!3m8!1s9YshJLRLa-5XvJ8qN_IolA!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fpanoid%3D9YshJLRLa-5XvJ8qN_IolA%26cb_client%3Dmaps_sv.tactile.gps%26w%3D203%26h%3D100%26yaw%3D319.1379%26pitch%3D0%26thumbfov%3D100!7i16384!8i8192!9m2!1b1!2i47"
-        class="">map</a><br><br>
+        class="">map</a>
+
+    <br>
     _____<br>
     <span>change to right lane, signal right:</span><br>
     <a href="https://www.google.com/maps/@22.3344726,114.1679814,3a,75y,41.38h,94.04t/data=!3m9!1e1!3m7!1s74YaWDVt5pYDX1-5LChrDg!2e0!7i16384!8i8192!9m2!1b1!2i47"
-        class="">map</a><br><br>
+        class="">map</a>
+
+    <br>
     _____<br>
     <span>go straight:</span><br>
     <a href="https://www.google.com/maps/@22.3356495,114.1689986,3a,75y,38.87h,82.95t/data=!3m9!1e1!3m7!1sHNd4_qwPva2uyosjavmt1w!2e0!7i16384!8i8192!9m2!1b1!2i42"
-        class="">map</a><br><br>
+        class="">map</a>
+
+    <br>
     _____<br>
     <span>choose left lane , signal left:</span><br>
     <a href="https://www.google.com/maps/@22.3363591,114.1690779,3a,75y,358.75h,90.47t/data=!3m9!1e1!3m7!1spmqxgbjwOvUf0X8Al0z02A!2e0!7i16384!8i8192!9m2!1b1!2i40"
-        class="">map</a><br><br>
+        class="">map</a>
+
+    <br>
     _____<br>
     <span>merge to one lane , signal right:</span><br>
     <a href="https://www.google.com/maps/@22.3368009,114.169267,3a,75y,16.22h,96.11t/data=!3m6!1e1!3m4!1sT6H9cN0RkYSI5Ho_DtKZyw!2e0!7i16384!8i8192"
-        class="">map</a><br><br>
+        class="">map</a>
+
+    <br>
     _____<br>
     <span>divide to 2 lanes, signal left:</span><br>
     <a href="https://www.google.com/maps/@22.3383342,114.1687991,3a,75y,282.11h,92.57t/data=!3m9!1e1!3m7!1s6kJkULHHOBY3JWgnQbKi9g!2e0!7i16384!8i8192!9m2!1b1!2i47"
-        class="">map</a><br><br>
+        class="">map</a>
+
+    <br>
     _____<br>
     <span>road 2:</span><br>
     _____<br>
     <span>change to right lane, signal right:</span><br>
     <a href="https://www.google.com/maps/@22.3391325,114.1655209,3a,75y,232.93h,99.26t/data=!3m9!1e1!3m7!1shbIiC0GqThVuK2CQQqUQvg!2e0!7i16384!8i8192!9m2!1b1!2i47"
-        class="">map</a><br><br>
+        class="">map</a>
+
+    <br>
     _____<br>
     <span>turn left:</span><br>
     <a href="https://www.google.com/maps/@22.333224,114.1635849,3a,75y,160h,89.81t/data=!3m9!1e1!3m7!1sivayqROx0PQDruuvch709g!2e0!7i16384!8i8192!9m2!1b1!2i47"
-        class="">map</a><br><br>
+        class="">map</a>
+
+    <br>
     _____<br>
     <span>turn left:</span><br>
     <a href="https://www.google.com/maps/@22.3354986,114.1664853,3a,75y,40.37h,90t/data=!3m7!1e1!3m5!1sZSi9cgfhoMD8ZAtU6ZzI5g!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fpanoid%3DZSi9cgfhoMD8ZAtU6ZzI5g%26cb_client%3Dmaps_sv.tactile.gps%26w%3D203%26h%3D100%26yaw%3D243.5688%26pitch%3D0%26thumbfov%3D100!7i16384!8i8192"
-        class="">map</a><br><br>
+        class="">map</a>
+
+    <br>
     _____<br>
     <span>turn left:</span><br>
     <a href="https://www.google.com/maps/@22.3364843,114.1685025,3a,75y,113.6h,97.01t/data=!3m10!1e1!3m8!1sIt8lgKhITGGihIwbcQ0Kaw!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fpanoid%3DIt8lgKhITGGihIwbcQ0Kaw%26cb_client%3Dmaps_sv.tactile.gps%26w%3D203%26h%3D100%26yaw%3D60.501854%26pitch%3D0%26thumbfov%3D100!7i16384!8i8192!9m2!1b1!2i47"
-        class="">map</a><br><br>
+        class="">map</a>
+
+    <br>
     _____<br>
+    <div id="drag-1" class="draggable">
+        <p> You can drag one element </p>
+    </div>
+
+    <img src="drive1.png" alt="" srcset="">
+
     <script>
+        PlainOverlay.show(); // Static method
+
+
         var arr = document.querySelectorAll("a")
         for (var i = 0, len = arr.length; i < len; i++) {
             var str = arr[i];
@@ -87,9 +207,9 @@
                 oEvent.preventDefault();
                 oEvent.stopPropagation();
                 oEvent.target.classList.add("backRed");
-           //          alert(oEvent.target.href);
+                //          alert(oEvent.target.href);
 
-           window.location.href = oEvent.target.href
+                window.location.href = oEvent.target.href
                 /*
                                 (function (str) {
                          setTimeout(function () {
@@ -100,6 +220,7 @@
                 return false;
             }
         }
+
         function removeColor() {
             var arr = document.querySelectorAll("a")
             for (var i = 0, len = arr.length; i < len; i++) {
@@ -110,4 +231,5 @@
         removeColor()
     </script>
 </body>
+
 </html>
