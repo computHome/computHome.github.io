@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Testing</title>
     <style>
+        .backRed {
+            background-color: rgb(218, 155, 155);
+        }
     </style>
 </head>
 <body>
@@ -73,6 +76,35 @@
     <a href="https://www.google.com/maps/@22.3364843,114.1685025,3a,75y,113.6h,97.01t/data=!3m10!1e1!3m8!1sIt8lgKhITGGihIwbcQ0Kaw!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fpanoid%3DIt8lgKhITGGihIwbcQ0Kaw%26cb_client%3Dmaps_sv.tactile.gps%26w%3D203%26h%3D100%26yaw%3D60.501854%26pitch%3D0%26thumbfov%3D100!7i16384!8i8192!9m2!1b1!2i47"
         class="">map</a><br><br>
     _____<br>
-  
+    <script>
+        var arr = document.querySelectorAll("a")
+        for (var i = 0, len = arr.length; i < len; i++) {
+            var str = arr[i];
+            str.onclick = (oEvent) => {
+                // alert('test');
+                removeColor()
+                window._ttt = str;
+                oEvent.preventDefault();
+                oEvent.stopPropagation();
+                oEvent.target.classList.add("backRed");
+                /*
+                                (function (str) {
+                         setTimeout(function () {
+                            oEvent.target.classList.add("backRed");
+                                    }, 500);
+                                })(str);
+                */
+                return false;
+            }
+        }
+        function removeColor() {
+            var arr = document.querySelectorAll("a")
+            for (var i = 0, len = arr.length; i < len; i++) {
+                var str = arr[i];
+                str.classList.remove("backRed");
+            }
+        }
+        removeColor()
+    </script>
 </body>
 </html>
